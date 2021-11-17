@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Shopping Cart</title>
+
+    <link rel="stylesheet" href="{% static 'cr/style.css' %}" media="screen" title="no title" charset="utf-8">
+    <script src="https://code.jquery.com/jquery-2.2.4.js" charset="utf-8"></script>
+    <meta name="robots" content="noindex,follow" />
+  </head>
+  <body>
+    <div class="shopping-cart">
+      <!-- Title -->
+      <div class="title">
+        Shopping Bag
+      </div>
+
+       {% for i in ci %}
+ <!-- Product #1 -->
+      <div class="item">
+        <div class="buttons">
+          <span><i class="fa fa-trash" style="color:red;"></i></span>
+        </div>
+        <div class="image">
+          <a href="{{i.product.get_url}}"><img src="{{i.product.image.url}}"  alt="{{i.product.name}}" style="height:100px;width:100px;"/></a>
+        </div>
+
+        <div class="description">
+                    <span>{{i.product.name}}</span>
+
+          <span>ID:{{i.product.id}}</span>
+          <span>price:{{i.product.price}}</span>
+        </div>
+
+        <div class="quantity">
+          <button class="plus-btn" type="button" name="button">
+            <img src="{% static 'cr/plus.svg' %}" alt="" />
+          </button>
+          <input type="text" name="name" value="1">
+          <button class="minus-btn" type="button" name="button">
+            <img src="{% static 'cr/minus.svg' %}" alt="" />
+          </button>
+        </div>
+
+        <div class="total-price">${{t}}</div>
+      </div>
+
+
+        <br>
+
+                {% endfor %}
+
+
+      <!-- Product #2 -->
+
+  </body>
+{% endblock %}

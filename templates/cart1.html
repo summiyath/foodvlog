@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+      <head>
+    <meta charset="utf-8">
+
+</head>
+<body style="background-color:pistagreen;" >
+<div class="col-25">
+    <div class="container">
+      <h4>Cart
+        <span class="price" style="color:black">
+          <i class="fa fa-shopping-cart"></i>
+        </span>
+      </h4>
+                  {% for i in ci %}
+               <div class="buttons">
+          <span>           <a href="{% url 'delcart' i.product.id %}"><i class="fa fa-trash" style="font-size:20px;color:white;"></i></a></span>
+        </div>
+         <div class="image">
+<a href="{{i.product.get_url}}"><img src="{{i.product.image.url}}" alt="{{i.product.name}}" style="height:150px;width:150px:"></a>
+            </div>
+      <p> <span class="price">${{i.product.price}}*1</span></p>
+              <p>{{i.product.name}} <span class="price">${{i.total}} <br><a href="{% url 'addcart' i.product.id %} "><i class="fa fa-plus" style="font-size:14px"></i></a>{{i.quantity}}<a href="{% url 'minuscart' i.product.id %}"><i class="fa fa-minus" style="font-size:14px"></i></a>  </span></p>
+
+      <hr>
+        {% endfor %}
+      <p>Total <span class="price" style="color:white"><b>${{t}}</b></span></p>
+    </div>
+  </div>
+</div>
+
+</body>
+{% endblock %}

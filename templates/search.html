@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+<div class="wrapper row3">
+  <main class="hoc container clear">
+
+    <section id="introblocks">
+      <ul class="nospace group btmspace-80">
+    -------------------
+          {% for i in pr %}
+        <li class="one_third">
+          <figure>
+              <img class="imgover"  src="{{i.image.url}}" alt="">
+
+            <figcaption>
+              <h6 class="heading" >{{i.name}}</h6>
+                    <a href="{{i.get_url}}" class="btn btn-primary">Go detail</a>
+
+
+            </figcaption>
+          </figure>
+        </li>
+          {% endfor %}
+          {% endblock %}

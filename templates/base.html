@@ -1,0 +1,90 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sislaf</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{% static 'hm/layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+
+</head>
+<body id="top">
+
+<div class="bgded overlay" style="background-image:url({% static 'hm/images/demo/backgrounds/01.jpg' %});">
+  <!-- ################################################################################################ -->
+  <div class="wrapper row0">
+    <div id="topbar" class="hoc clear">
+
+      <div class="fl_right">
+        <!-- ################################################################################################ -->
+        <ul class="nospace">
+
+          <li id="searchform">
+            <div>
+                             <form action="{% url 'search' %}" method="get">
+                <fieldset>
+                  <legend>Quick Search:</legend>
+                  <input type="text" name="q" placeholder="Enter search item">
+                  <button type="submit"><i class="fas fa-search"></i></button>
+                </fieldset>
+              </form>
+            </div>
+          </li>
+        </ul>
+        <!-- ################################################################################################ -->
+      </div>
+            </div>
+  </div>
+        <div class="wrapper row1">
+    <header id="header" class="hoc clear">
+      <div id="logo" class="fl_left">
+        <!-- ################################################################################################ -->
+        <h1><a href="index.html">AVODHA SHOPPING</a></h1>
+        <!-- ################################################################################################ -->
+      </div>
+              <nav id="mainav" class="fl_right">
+        <!-- ################################################################################################ -->
+        <ul class="clear">
+          <li class="active"><a href="/">Home</a></li>
+                      <li><a   class="active" href="{% url 'cartdetails' %}">          <i class="fa fa-shopping-cart" style="color:red;font-size:24px;">{{itc}} </i></a>
+             									{% if user.is_authenticated %}
+									<li>Hai {{user.username}}</li>
+
+            <li><a   class="active" href="accounts/logout">Logout</a>
+            									{% else %}
+
+
+                      <li><a   class="active" href="accounts/login">Login</a>
+                      <li><a   class="active" href="accounts/register">Register</a>
+									{% endif %}
+
+                                            </ul>
+                  </div>
+    </div>
+        <!-- ################################################################################################ -->
+      </nav>
+    </header>
+
+
+
+
+
+
+
+
+  </div>
+
+
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+
+
+
+{% block content %}
+{% endblock %}
+
+
+</body>
+</html>
